@@ -3,37 +3,18 @@
  */
 package com.jachs.springel.entity;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component( "role2" )
 public class Role2 {
-    private Long value;
-    private String RoleName;
+    //赋值long型
+    @Value( "#{2}" )
+    private Long id;
+    //字符串赋值
+    @Value( "#{'role_name_2'}" )
+    private String roleName;
+    //字符串赋值
+    @Value( "#{'note_2'}" )
     private String note;
-    
-    public Role2 () {
-        super ();
-    }
-    public Role2 ( Long value, String roleName, String note ) {
-        super ();
-        this.value = value;
-        RoleName = roleName;
-        this.note = note;
-    }
-    public Long getValue () {
-        return value;
-    }
-    public void setValue ( Long value ) {
-        this.value = value;
-    }
-    public String getRoleName () {
-        return RoleName;
-    }
-    public void setRoleName ( String roleName ) {
-        RoleName = roleName;
-    }
-    public String getNote () {
-        return note;
-    }
-    public void setNote ( String note ) {
-        this.note = note;
-    }
-    
 }

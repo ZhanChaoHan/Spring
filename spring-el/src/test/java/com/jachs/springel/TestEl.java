@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
+import com.jachs.springel.bean.ElBean;
 import com.jachs.springel.entity.Role2;
 
 /**
@@ -44,33 +46,11 @@ public class TestEl {
 
         System.out.println ( "-----------------------------------------------" );
        
-        //表达式解析器
-        ExpressionParser ep = new SpelExpressionParser();
-        //创建角色对象
-        Role2 role = new Role2(1L, "role_name", "note");
-        Expression ex = ep.parseExpression("note");
-        //相当于从role中获取备注信息
-        String note = (String) ex.getValue(role);
-        System.out.println(note);
-        //变量环境类，并且将角色对象role作为其根节点
-        EvaluationContext ctx = new StandardEvaluationContext(role);
-        //变量环境类操作根节点
-        ep.parseExpression("note").setValue(ctx, "new_note");
-        //获取备注，这里的String.class指明，我们希望返回的是一个字符串
-        note = ep.parseExpression("note").getValue(ctx, String.class);
-        System.out.println(note);
-        //调用getRoleName方法
-        String roleName = ep.parseExpression("getRoleName()").getValue(ctx, String.class);
-        System.out.println(roleName);
-        //新增环境变量
-        List<String> list = new ArrayList<String>();
-        list.add("value1");
-        list.add("value2");
-        //给变量环境增加变量
-        ctx.setVariable("list", list);
-        //通过表达式去读/写环境变量的值
-        ep.parseExpression("#list[1]").setValue(ctx, "update_value2");
-        System.out.println(ep.parseExpression("#list[1]").getValue(ctx));
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig3.class);
+        Role2 role2 = context.getBean(Role2.class);
+        System.out.println(role2.toString());
+        ElBean elBean = context.getBean(ElBean.class);
+        System.out.println(elBean.toString());
         
     }
 }
