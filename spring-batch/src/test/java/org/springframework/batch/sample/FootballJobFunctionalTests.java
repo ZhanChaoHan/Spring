@@ -28,6 +28,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+/****
+ * 
+ * @author zhanchaohan
+ * @see https://github.com/spring-projects/spring-batch/tree/master/spring-batch-samples#football-job
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/simple-job-launcher-context.xml", "/jobs/footballJob.xml", "/job-runner-context.xml" })
 public class FootballJobFunctionalTests {
