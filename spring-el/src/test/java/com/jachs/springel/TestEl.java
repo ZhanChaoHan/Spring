@@ -46,11 +46,6 @@ public class TestEl {
 
         System.out.println ( "-----------------------------------------------" );
        
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig3.class);
-        Role2 role2 = context.getBean(Role2.class);
-        System.out.println(role2.toString());
-        ElBean elBean = context.getBean(ElBean.class);
-        System.out.println(elBean.toString());
         
     }
 }
