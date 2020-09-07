@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 
 import org.springframework.batch.sample.domain.football.Game;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -41,6 +42,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@PropertySource("classpath:batch-mysql.properties")
 @ContextConfiguration(locations = {"/data-source-context.xml"})
 public class JdbcGameDaoIntegrationTests {
 	private JdbcGameDao gameDao;
