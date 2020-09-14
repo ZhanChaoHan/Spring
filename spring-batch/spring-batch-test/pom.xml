@@ -102,6 +102,7 @@
 		<dependency>
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-samples</artifactId>
+			<version>1.1.4.RELEASE</version>
 		</dependency>
 		
 		<!-- gradle导出jar -->
