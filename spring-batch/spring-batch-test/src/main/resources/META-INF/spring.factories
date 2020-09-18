@@ -1,4 +1,0 @@
-# Batch ContextCustomizerFactory implementation for the Spring TestContext Framework
-#
-org.springframework.test.context.ContextCustomizerFactory= \
-org.springframework.batch.test.context.BatchTestContextCustomizerFactory
