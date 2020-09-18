@@ -10,11 +10,12 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.jachs.batch</groupId>
-	<artifactId>jachs-batch-test</artifactId>
+	<groupId>org.springframework.batch</groupId>
+	<artifactId>spring-batch-test</artifactId>
 	<version>4.3.0-M2</version>
 	<name>Spring Batch Test</name>
 	<description>Spring Batch Test</description>
+	<url>https://projects.spring.io/spring-batch/</url>
 	<organization>
 		<name>Spring</name>
 		<url>https://spring.io</url>
