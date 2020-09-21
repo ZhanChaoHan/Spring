@@ -18,40 +18,33 @@ import com.jachs.model.Person;
 @Configuration
 public class HelloWorldJobConfig {
 
-  @Bean
-  public Job helloWorlJob(JobBuilderFactory jobBuilders,
-      StepBuilderFactory stepBuilders) {
-    return jobBuilders.get("helloWorldJob")
-        .start(helloWorldStep(stepBuilders)).build();
-  }
+    @Bean
+    public Job helloWorlJob ( JobBuilderFactory jobBuilders , StepBuilderFactory stepBuilders ) {
+        return jobBuilders.get ( "helloWorldJob" ).start ( helloWorldStep ( stepBuilders ) ).build ();
+    }
 
-  @Bean
-  public Step helloWorldStep(StepBuilderFactory stepBuilders) {
-    return stepBuilders.get("helloWorldStep")
-        .<Person, String>chunk(10).reader(reader())
-        .processor(processor()).writer(writer()).build();
-  }
+    @Bean
+    public Step helloWorldStep ( StepBuilderFactory stepBuilders ) {
+        return stepBuilders.get ( "helloWorldStep" ).<Person, String> chunk ( 10 ).reader ( reader () )
+                .processor ( processor () ).writer ( writer () ).build ();
+    }
 
-  @Bean
-  public FlatFileItemReader<Person> reader() {
-    return new FlatFileItemReaderBuilder<Person>()
-        .name("personItemReader")
-        .resource(new ClassPathResource("csv/persons.csv"))
-        .delimited().names(new String[] {"firstName", "lastName"})
-        .targetType(Person.class).build();
-  }
+    @Bean
+    public FlatFileItemReader<Person> reader () {
+        return new FlatFileItemReaderBuilder<Person> ().name ( "personItemReader" )
+                .resource ( new ClassPathResource ( "csv/persons.csv" ) ).delimited ()
+                .names ( new String[] { "firstName", "lastName" } ).targetType ( Person.class ).build ();
+    }
 
-  @Bean
-  public PersonItemProcessor processor() {
-    return new PersonItemProcessor();
-  }
+    @Bean
+    public PersonItemProcessor processor () {
+        return new PersonItemProcessor ();
+    }
 
-  @Bean
-  public FlatFileItemWriter<String> writer() {
-    return new FlatFileItemWriterBuilder<String>()
-        .name("greetingItemWriter")
-        .resource(new FileSystemResource(
-            "target/test-outputs/greetings.txt"))
-        .lineAggregator(new PassThroughLineAggregator<>()).build();
-  }
+    @Bean
+    public FlatFileItemWriter<String> writer () {
+        return new FlatFileItemWriterBuilder<String> ().name ( "greetingItemWriter" )
+                .resource ( new FileSystemResource ( "target/test-outputs/greetings.txt" ) )
+                .lineAggregator ( new PassThroughLineAggregator<> () ).build ();
+    }
 }
