@@ -25,7 +25,7 @@ public class TecherController {
     
     @RequestMapping("/queryAllTeacher")
     @ResponseBody
-    public List<Teacher> failure() {
+    public List<Teacher> queryAllTeacher() {
         return teacherService.findAll();
     }
 }

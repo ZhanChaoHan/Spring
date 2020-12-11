@@ -30,15 +30,15 @@ public class PasswordEncoderConfig implements PasswordEncoder {
         
      // Create an encoder with all the defaults
 //        Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
-//        String result = encoder.encode("myPassword");
+//        String result = encoder.encode(rawPassword);
         
      // Create an encoder with all the defaults
 //        Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder();
-//        String result = encoder.encode("myPassword");
+//        String result = encoder.encode(rawPassword);
         
      // Create an encoder with all the defaults
 //        SCryptPasswordEncoder encoder = new SCryptPasswordEncoder();
-//        String result = encoder.encode("myPassword");
+//        String result = encoder.encode(rawPassword);
         
         return rawPassword.toString ();
     }

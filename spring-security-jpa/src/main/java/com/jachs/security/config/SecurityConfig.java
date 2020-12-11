@@ -101,6 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.successHandler(loginSuccessHandler)// 成功登录处理器
 			.failureHandler(loginFailureHandler)
 			.and().logout().logoutUrl("/login/logout")// 失败登录处理器
+			.deleteCookies("JSESSIONID")//删除Cookies
 			.logoutSuccessHandler(loginOutHandler).permitAll();// 注销成功处理器
 		
 		// 配置持久化

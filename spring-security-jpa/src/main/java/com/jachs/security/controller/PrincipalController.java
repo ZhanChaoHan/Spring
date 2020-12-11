@@ -24,7 +24,7 @@ public class PrincipalController {
     
     @RequestMapping("/queryAllPrincipal")
     @ResponseBody
-    public List<Principal> failure() {
+    public List<Principal> queryAllPrincipal() {
         return principalService.findAll();
     }
 }
