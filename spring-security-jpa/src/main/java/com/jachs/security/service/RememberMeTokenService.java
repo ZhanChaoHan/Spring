@@ -43,8 +43,11 @@ public class RememberMeTokenService implements PersistentTokenRepository {
 	@Override
 	public PersistentRememberMeToken getTokenForSeries(String seriesId) {
 	    RememberMeToken RMT= rememberMeTokenDao.findBySeries(seriesId);
-	    
-	    return new PersistentRememberMeToken ( RMT.getLoginName (), RMT.getSeries (), RMT.getToken (), RMT.getLastUsed () );
+	    if(RMT!=null) {
+	        return new PersistentRememberMeToken ( RMT.getLoginName (), RMT.getSeries (), RMT.getToken (), RMT.getLastUsed () );
+	    }else {
+	        return null;
+	    }
 	}
 
 	@Transactional

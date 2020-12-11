@@ -23,7 +23,7 @@ public class TecherController {
     @Autowired
     private TeacherService teacherService;
     
-    @RequestMapping("/queryAllPrincipal")
+    @RequestMapping("/queryAllTeacher")
     @ResponseBody
     public List<Teacher> failure() {
         return teacherService.findAll();
