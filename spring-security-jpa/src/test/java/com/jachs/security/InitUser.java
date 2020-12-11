@@ -6,6 +6,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
 import com.jachs.security.dao.RoleUserRepository;
 import com.jachs.security.entity.RoleUser;
@@ -24,9 +25,11 @@ public class InitUser {
     //创建一个超级用户
     @Test
     public void initMyUser() {
+        Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
+        
         RoleUser ru=new RoleUser();
         ru.setName ( "Jachs" );
-        ru.setPassword ( "123456" );
+        ru.setPassword ( encoder.encode ("123456" ) );
         ru.setPhone ( 123456L );
         ru.setUsername ( "zch" );
         ru.setAccountNonExpired ( false );
