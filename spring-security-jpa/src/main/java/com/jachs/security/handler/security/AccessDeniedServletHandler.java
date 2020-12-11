@@ -33,7 +33,7 @@ public class AccessDeniedServletHandler implements AccessDeniedHandler{
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("code", "403");
         map.put("msg", accessDeniedException.getMessage());
-        map.put("data","");
+        map.put("data","你莫得权限");
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().write(objectMapper.writeValueAsString(map));
