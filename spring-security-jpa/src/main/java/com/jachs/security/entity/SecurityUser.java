@@ -30,7 +30,7 @@ public class SecurityUser implements GrantedAuthority{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "SId")
+    @Column(name = "SId",length = 32)
     private Long Id;
     
     @Column(name = "UserId")

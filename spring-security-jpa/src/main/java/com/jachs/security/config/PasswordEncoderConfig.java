@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PasswordEncoderConfig implements PasswordEncoder {
-   
     @Override
     public String encode ( CharSequence rawPassword ) {
         // 加密方法可以根据自己的需要修改
@@ -25,8 +24,8 @@ public class PasswordEncoderConfig implements PasswordEncoder {
 //        String result = encoder.encode(rawPassword);
         
      // Create an encoder with all the defaults
-        Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
-        String result = encoder.encode(rawPassword);
+         Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
+         String result = encoder.encode(rawPassword.toString());
         
      // Create an encoder with all the defaults
 //        Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder();
@@ -42,7 +41,9 @@ public class PasswordEncoderConfig implements PasswordEncoder {
 
     @Override
     public boolean matches ( CharSequence rawPassword , String encodedPassword ) {
-        return encode ( rawPassword ).equals ( encodedPassword );
+//        return encode ( rawPassword ).equals ( encodedPassword );
+    	Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
+    	return encoder.matches(rawPassword, encodedPassword);
     }
 
 }

@@ -53,6 +53,9 @@ public class RememberMeTokenService implements PersistentTokenRepository {
 	@Transactional
 	@Override
 	public void removeUserTokens(String username) {
-		rememberMeTokenDao.deleteById ( username );
+		RememberMeToken RMT= rememberMeTokenDao.findById(username).get();
+		 if(RMT!=null) {
+			 rememberMeTokenDao.deleteById ( username );
+		 }
 	}
 }

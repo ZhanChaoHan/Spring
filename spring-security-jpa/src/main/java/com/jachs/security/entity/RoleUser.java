@@ -36,6 +36,7 @@ public class RoleUser implements UserDetails {
     private static final long serialVersionUID = 1L;
     
     @Id
+    @Column(name = "Id",length = 32)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long Id;
     @Column(name = "name")

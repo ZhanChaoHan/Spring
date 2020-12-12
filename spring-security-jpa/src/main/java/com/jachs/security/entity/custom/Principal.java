@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Table(name="Principal")
 public class Principal {
     @Id
-    @Column(name = "PrincipalName")
+    @Column(name = "PrincipalName",length = 32)
     private String PrincipalName;
     
     @Column(name = "PrincipalAge")

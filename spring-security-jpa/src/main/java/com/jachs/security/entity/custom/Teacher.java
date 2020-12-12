@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Table(name="Teacher")
 public class Teacher {
     @Id
-    @Column(name = "TeacherName")
+    @Column(name = "TeacherName",length = 32)
     private String TeacherName;
     @Column(name = "TeacherAge")
     private Integer TeacherAge;

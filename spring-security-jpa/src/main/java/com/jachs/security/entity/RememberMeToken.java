@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Table(name="RememberMeToken")
 public class RememberMeToken {
     @Id
-    @Column(name = "loginName")
+    @Column(name = "loginName",length = 32)
     private String loginName;
     @Column(name = "series")
     private String series;
