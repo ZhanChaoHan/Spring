@@ -70,13 +70,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
-				.antMatcher("/**").authorizeRequests();
 		// 禁用CSRF 开启跨域
 		http.csrf().disable().cors();
+		//开启模拟请求，比如API POST测试工具的测试，不开启时，API POST为报403错误
+		http.csrf().disable();
+		
+		ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
+				.antMatcher("/**").authorizeRequests();
 
-		// 标识只能在 服务器本地ip[127.0.0.1或localhost] 访问`/login/*`接口，其他ip地址无法访问
-		registry.antMatchers("/login/*").hasIpAddress("127.0.0.1");
+		//ip白名单
+//		registry.antMatchers("/principal/**").hasIpAddress("192.168.1.3");
 
 		HttpSecurity httpSecurity = http.authorizeRequests().and();
 
@@ -88,7 +91,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		.antMatchers(HttpMethod.GET,"/gavefive/*","/helper/*").hasRole("GetA")
 //		.antMatchers(HttpMethod.GET,"/modular/*","/part/*").hasRole("GetB")
 //		.antMatchers("/helper/*","/modular/*","/gavefive/*","/part/*").hasRole("Jachs")
-		.antMatchers("/login/*").permitAll()// 放行所有login下接口地址
 		.anyRequest().authenticated()
 		.and().exceptionHandling().accessDeniedHandler(accessDeniedServletHandler);
 		
@@ -96,7 +98,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity
 		.httpBasic().authenticationEntryPoint(userAuthenticationEntryPointHandler)
 		.and ().formLogin()
-			.loginPage("/login/golog")// 登录页面url
+			.loginPage("/login/golog").permitAll()// 登录页面url
 			.loginProcessingUrl("/login/mylogin") // 指定验证凭据的URL，和表单路径一样
 			.successHandler(loginSuccessHandler)// 成功登录处理器
 			.failureHandler(loginFailureHandler)
