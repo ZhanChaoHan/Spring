@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jachs.security.entity.custom.Teacher;
-import com.jachs.security.service.PrincipalService;
 import com.jachs.security.service.TeacherService;
 
 /**
@@ -26,6 +25,6 @@ public class TecherController {
     @RequestMapping("/queryAllTeacher")
     @ResponseBody
     public List<Teacher> queryAllTeacher() {
-        return teacherService.findAll();
+        return teacherService.queryAllTeacher();
     }
 }

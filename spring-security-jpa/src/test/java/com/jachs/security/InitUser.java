@@ -20,12 +20,11 @@ import com.jachs.security.entity.SecurityUser;
 public class InitUser {
     @Autowired
     private RoleUserRepository roleUserRepository;
-    
+    private static final Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
     
     //创建一个超级用户
     @Test
     public void initMyUser() {
-        Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
         
         RoleUser ru=new RoleUser();
         ru.setName ( "Jachs" );

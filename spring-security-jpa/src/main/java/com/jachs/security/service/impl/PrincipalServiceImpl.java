@@ -24,4 +24,16 @@ public class PrincipalServiceImpl implements PrincipalService{
         return principalRepository.findAll ();
     }
 
+
+	@Override
+	public Principal queryMySelf(String name) {
+		return principalRepository.findById(name).get();
+	}
+
+
+	@Override
+	public void deleteOnePrincipal(String principalName) {
+		principalRepository.deleteById(principalName);;
+	}
+
 }

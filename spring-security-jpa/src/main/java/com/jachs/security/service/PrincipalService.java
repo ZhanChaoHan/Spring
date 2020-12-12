@@ -11,4 +11,8 @@ import com.jachs.security.entity.custom.Principal;
 public interface PrincipalService {
     List<Principal> findAll ();
 
+	Principal   queryMySelf(String name);
+
+	void deleteOnePrincipal(String principalName);
+
 }

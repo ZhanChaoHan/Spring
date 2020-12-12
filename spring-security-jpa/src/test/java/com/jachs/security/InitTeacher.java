@@ -7,6 +7,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
 import com.jachs.security.dao.custom.PrincipalRepository;
 import com.jachs.security.dao.custom.TeacherRepository;
@@ -25,21 +26,21 @@ public class InitTeacher {
     private TeacherRepository teacherRepository;
     @Autowired
     private PrincipalRepository principalRepository;
-    
+    private static final Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
     
     @Test
-    public void addOne() {
+    public void addMany() {
         Principal principal=principalRepository.findAll ().get ( 0 );
         Random rd= new Random ();
         
-        for ( int kk = 0 ; kk < 10 ; kk++ ) {
+        for ( int kk = 3 ; kk < 10 ; kk++ ) {
             RoleUser ru=new RoleUser ();
             ru.setAccountNonExpired ( false );
             ru.setAccountNonLocked ( false );
             ru.setCredentialsNonExpired ( false );
             ru.setEnabled ( false );
             ru.setName ( "老师用户"+kk );
-            ru.setPassword ( "123456" );
+            ru.setPassword (encoder.encode ("123456" ) );
             ru.setPhone ( 878545L );
             ru.setUsername ( "techar"+kk );
             

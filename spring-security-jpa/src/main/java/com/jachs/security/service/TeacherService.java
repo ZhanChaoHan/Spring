@@ -9,6 +9,6 @@ import com.jachs.security.entity.custom.Teacher;
  * 
  */
 public interface TeacherService {
-    List<Teacher> findAll ();
+    List<Teacher> queryAllTeacher ();
 
 }
