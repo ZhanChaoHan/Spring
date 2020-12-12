@@ -14,6 +14,14 @@ import com.jachs.security.service.PrincipalService;
 /**
  * @author zhanchaohan
  *  校长Controller
+ *  @see org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer
+ *  全部可以拦截的都是这个类，功能强大,可以拦截类可以拦截方法
+ *  hasAnyRole
+ *  hasRole
+ *  hasAuthority
+ *  hasAnyAuthority
+ *  hasIpAddress
+ *  AuthorizedUrl
  */
 @Controller
 @RequestMapping("/principal")
