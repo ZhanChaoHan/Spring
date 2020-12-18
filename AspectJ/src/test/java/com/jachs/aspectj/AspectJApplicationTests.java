@@ -8,6 +8,7 @@ class AspectJApplicationTests {
 
 	@Test
 	void contextLoads() {
+	    
 	}
 
 }
