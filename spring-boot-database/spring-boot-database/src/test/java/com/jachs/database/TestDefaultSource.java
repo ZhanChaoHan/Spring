@@ -38,6 +38,5 @@ public class TestDefaultSource {
         System.out.println ( "得到的连接：" + ds.getConnection () );
         
         
-        System.out.println ( (double)38.66+38.6+31+37+36+25.6+24+29+31.97+38 );
     }
 }
