@@ -26,25 +26,23 @@
 			<email>799516423@qq.com</email>
 		</developer>
 	</developers>
+
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>com.jachs</groupId>
+			<artifactId>spring-boot-container</artifactId>
+			<version>WOW</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<!-- 添加JDBC依赖 -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<!-- 添加MySQL依赖 -->
 		<dependency>
 			<groupId>mysql</groupId>
