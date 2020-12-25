@@ -1,5 +1,7 @@
 package com.jachs.boot.jdbc;
 
+import java.util.Date;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,5 +23,15 @@ public class TestTUser {
         for ( Tuser user : tuserDao.queryAll () ) {
             System.out.println ( user.toString () );
         }
+    }
+    @Test
+    public void testA() {
+        Tuser user=new Tuser();
+        user.setId ( 71 );
+        user.setLast_login_time ( new Date() );
+        user.setPassword ( "1578" );
+        user.setSex ( 0 );
+        user.setUser_name ( "mbg" );
+        tuserDao.saveM( user );
     }
 }

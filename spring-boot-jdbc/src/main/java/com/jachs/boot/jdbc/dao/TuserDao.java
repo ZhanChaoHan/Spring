@@ -2,7 +2,9 @@ package com.jachs.boot.jdbc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,6 +25,18 @@ public class TuserDao {
     public int save(Tuser user) {
         String sql = "insert into t_user(id,user_name,password,last_login_time,sex) values(?,?,?,?,?)";
        return jdbcTemplate.update(sql, user.getId (),user.getUser_name (),user.getPassword (),user.getLast_login_time (),user.getSex ());
+    }
+    public int saveM(Tuser user) {
+        String sql = "insert into t_user(id,user_name,password,last_login_time,sex) values(:id,:user_name,:password,:last_login_time,:sex)";
+        Map<String, Object>data=new HashMap<String, Object>();
+        
+        data.put ( "id", user.getId () );
+        data.put ( "user_name", user.getUser_name () );
+        data.put ( "password", user.getPassword () );
+        data.put ( "last_login_time", user.getLast_login_time () );
+        data.put ( "sex", user.getSex () );
+        
+        return jdbcTemplate.update(sql, data);
     }
     public void saveAll(List<Tuser> user) {
         String sql = "insert into t_user(id,user_name,password,last_login_time,sex) values(?,?,?,?,?)";
