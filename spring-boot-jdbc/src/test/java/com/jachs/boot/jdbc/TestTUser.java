@@ -3,7 +3,9 @@ package com.jachs.boot.jdbc;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.jachs.boot.jdbc.dao.TuserDao;
+import com.jachs.boot.jdbc.entity.Tuser;
 
 /**
  * @author zhanchaohan
@@ -12,10 +14,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootTest
 public class TestTUser {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private TuserDao tuserDao;
     
     @Test
     public void testU() {
-        System.out.println ( "aaaaa" );
+        for ( Tuser user : tuserDao.queryAll () ) {
+            System.out.println ( user.toString () );
+        }
     }
 }
