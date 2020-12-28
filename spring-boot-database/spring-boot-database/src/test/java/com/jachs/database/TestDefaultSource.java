@@ -44,6 +44,10 @@ public class TestDefaultSource {
     @Qualifier("druidDataSource")
     private DataSource druidDataSource;
 	
+	@Autowired
+    @Qualifier("c3p0Source")
+    private DataSource c3p0Source;
+	
     @Test
     public void testDs () throws SQLException {
         System.out.println ( "用户名：" + dataSourceProperties.getUsername () );
