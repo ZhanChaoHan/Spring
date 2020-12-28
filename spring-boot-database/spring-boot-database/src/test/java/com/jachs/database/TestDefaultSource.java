@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -34,6 +35,14 @@ public class TestDefaultSource {
 	private C3p0Properties c3p0Properties;
 	@Autowired
 	private DbcpProperties dbcpProperties;
+	
+	@Autowired
+	@Qualifier("dbcpSource")
+	private DataSource dbcpDataSource;
+	
+	@Autowired
+    @Qualifier("druidDataSource")
+    private DataSource druidDataSource;
 	
     @Test
     public void testDs () throws SQLException {
