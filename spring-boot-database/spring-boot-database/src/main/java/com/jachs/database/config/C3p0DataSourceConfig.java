@@ -8,6 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+/***
+ * 
+ * @author zhanchaohan
+ *
+ */
 @Configuration
 @PropertySource( encoding = "Utf-8", value = "classpath:/c3p0.properties" )
 public class C3p0DataSourceConfig {

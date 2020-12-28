@@ -17,6 +17,12 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+
+/***
+ * 
+ * @author zhanchaohan
+ *
+ */
 @Configuration
 @PropertySource(value = "classpath:druid.properties")
 public class DruidDataSourceConfig {

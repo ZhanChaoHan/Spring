@@ -8,6 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+
+/***
+ * 
+ * @author zhanchaohan
+ *
+ */
 @Configuration
 @PropertySource( encoding = "Utf-8", value = "classpath:/dbcp2.properties" )
 public class DbcpDataSourceConfig {
