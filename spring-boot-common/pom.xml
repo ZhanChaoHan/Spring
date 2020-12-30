@@ -21,11 +21,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.jachs</groupId>
-			<artifactId>spring-boot-container</artifactId>
-			<version>WOW</version>
-		</dependency>
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
