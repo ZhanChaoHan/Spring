@@ -20,7 +20,7 @@ public class C3p0DataSourceConfig {
     @Bean( "c3p0Source" )
     @ConfigurationProperties( prefix = "c3p0" )
     public DataSource c3p0SourceDs () {
-        return DataSourceBuilder.create ().build ();
+        return DataSourceBuilder.create ().type(com.mchange.v2.c3p0.ComboPooledDataSource.class).build();
     }
 
 }
