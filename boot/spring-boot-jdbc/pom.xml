@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.jachs</groupId>
 	<artifactId>spring-boot-jdbc</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>spring-boot-jdbc</name>
 	<description>jdbc</description>
 
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>com.jachs</groupId>
 			<artifactId>spring-boot-database</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.1</version>
 		</dependency>
 
 	</dependencies>

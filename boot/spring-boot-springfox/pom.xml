@@ -14,7 +14,7 @@
 	<!-- 项目相关 -->
 	<groupId>com.zaomianbao</groupId>
 	<artifactId>swagger</artifactId>
-	<version>1.0.0</version>
+	<version>0.0.1</version>
 	<name>swagger</name>
 	<description>Demo project for Swagger</description>
 

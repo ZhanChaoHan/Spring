@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.jachs</groupId>
 	<artifactId>spring-boot-jpa</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>spring-boot-jpa</name>
 	<description>example for jpa</description>
 

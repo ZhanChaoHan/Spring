@@ -3,6 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<organization>
+		<name>Jachs</name>
+		<url></url>
+	</organization>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -10,81 +14,76 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.jachs</groupId>
-	<artifactId>spring-security-jpa</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-security-jpa</name>
-	<description>Demo project for Spring Boot</description>
-
 	<properties>
-		<java.version>1.8</java.version>
+		<encoding>UTF-8</encoding>
+		<jdk.version>1.8</jdk.version>
+		
+		<lombok.version>1.18.16</lombok.version>
+		<commons_lang.version>2.6</commons_lang.version>
+		
+		<jachs.container>0.0.1</jachs.container>
+		<jachs.database>0.0.1</jachs.database>
+		<jachs.jdbc>0.0.1</jachs.jdbc>
+		<jachs.jpa>0.0.1</jachs.jpa>
 	</properties>
+	
+	<developers>
+		<developer>
+			<name>詹超涵</name>
+			<url>https://github.com/zhanchaohan/</url>
+			<email>799516423@qq.com</email>
+		</developer>
+	</developers>
+	
+	<groupId>com.jachs.boot</groupId>
+	<artifactId>jachs</artifactId>
+	<version>2.0.3</version>
+	<name>jachs</name>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>spring-boot-common</module>
+		<module>spring-boot-container</module>
+		<module>spring-boot-database</module>
+		<module>spring-boot-jdbc</module>
+		<module>spring-boot-jpa</module>
+		<module>spring-boot-springfox</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>com.jachs</groupId>
+			<artifactId>spring-boot-container</artifactId>
+			<version>${jachs.container}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>com.jachs</groupId>
+			<artifactId>spring-boot-database</artifactId>
+			<version>${jachs.database}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>com.jachs</groupId>
+			<artifactId>spring-boot-jdbc</artifactId>
+			<version>${jachs.jdbc}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-crypto</artifactId>
+			<groupId>com.jachs</groupId>
+			<artifactId>spring-boot-jpa</artifactId>
+			<version>${jachs.jpa}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-ext-jdk15on</artifactId>
-			<version>1.66</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<!-- json -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.73</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- mysql -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<!-- <version>8.0.17</version> -->
-			<!-- <version>5.1.42</version> -->
+			<version>${lombok.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons_lang.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-		<!-- 页面sec表达式依赖 -->
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<!-- <scope>test</scope> <exclusions> <exclusion> <groupId>org.junit.vintage</groupId> 
-				<artifactId>junit-vintage-engine</artifactId> </exclusion> </exclusions> -->
-		</dependency>
-
 	</dependencies>
+
 
 	<build>
 		<plugins>
