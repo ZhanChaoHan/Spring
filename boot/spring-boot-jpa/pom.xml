@@ -41,12 +41,20 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<resources>
+			<resource>
+				<directory>${basedir}/</directory>
+				<targetPath>target/classes</targetPath>
+				<filtering>true</filtering>
+				<includes>
+					<!-- 
+					<include>c3p0.properties</include>
+					<include>dbcp2.properties</include>
+					<include>druid.properties</include>
+					 -->
+					 <include>/*</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
-
 </project>
