@@ -21,7 +21,7 @@ public class LogController {
     @RequestMapping( "/hello" )
     public ModelAndView hello () {
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("hello");//设置视图名称
+        mv.setViewName("/hello");//设置视图名称
         
         
         

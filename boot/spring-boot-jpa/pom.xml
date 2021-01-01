@@ -13,8 +13,7 @@
 	<version>0.0.1</version>
 	<name>spring-boot-jpa</name>
 	<description>example for jpa</description>
-	<packaging>pom</packaging>
-
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -39,22 +38,8 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<resources>
-			<resource>
-				<directory>${basedir}/</directory>
-				<targetPath>target/classes</targetPath>
-				<filtering>true</filtering>
-				<includes>
-					<!-- 
-					<include>c3p0.properties</include>
-					<include>dbcp2.properties</include>
-					<include>druid.properties</include>
-					 -->
-					 <include>/*</include>
-				</includes>
-			</resource>
-		</resources>
-	</build>
+	<!-- <build> <resources> <resource> <directory>${basedir}/</directory> <targetPath>target/classes</targetPath> 
+		<filtering>true</filtering> <includes> <include>c3p0.properties</include> 
+		<include>dbcp2.properties</include> <include>druid.properties</include> <include>/*</include> 
+		</includes> </resource> </resources> </build> -->
 </project>
