@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * 
  */
 @SpringBootTest
-public class BeETest {
+public class DataBaseApplicationTest {
     @Autowired
     @Qualifier("c3p0Source")
     private DataSource c3ds;
