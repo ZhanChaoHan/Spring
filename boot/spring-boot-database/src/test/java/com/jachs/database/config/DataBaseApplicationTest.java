@@ -1,4 +1,4 @@
-package com.jachs.database;
+package com.jachs.database.config;
 
 import java.sql.SQLException;
 
@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import com.jachs.database.config.properties.C3p0Properties;
 
 /**
  * @author zhanchaohan
@@ -26,6 +27,9 @@ public class DataBaseApplicationTest {
     @Autowired
     @Qualifier("druidDataSource")
     private DataSource druidDataSource;
+    
+    @Autowired
+    private C3p0Properties C3p0Properties;
     
     @Test
     public void bsTest() throws SQLException {
