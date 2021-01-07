@@ -16,14 +16,13 @@ import org.springframework.stereotype.Repository;
 
 import com.jachs.database.jdbc.entity.Tuser;
 
-
 /**
  * @author zhanchaohan
  */
 @Repository
 public class TuserDao {
-    @Autowired
-    @Qualifier("druidJdbcTemplate")
+//    @Autowired
+//    @Qualifier("druidJdbcTemplate")
     private JdbcTemplate jdbcTemplate;
     
     
