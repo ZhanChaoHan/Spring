@@ -1,4 +1,4 @@
-package com.jachs.boot.jdbc;
+package com.jachs.database;
 
 import java.util.Date;
 
@@ -6,8 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.jachs.boot.jdbc.dao.TuserDao;
-import com.jachs.boot.jdbc.entity.Tuser;
+import com.jachs.database.jdbc.dao.TuserDao;
+import com.jachs.database.jdbc.entity.Tuser;
+
 
 /**
  * @author zhanchaohan

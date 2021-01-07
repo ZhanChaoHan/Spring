@@ -1,4 +1,4 @@
-package com.jachs.boot.jdbc;
+package com.jachs.database;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
