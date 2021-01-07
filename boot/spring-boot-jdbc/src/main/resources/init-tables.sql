@@ -5,6 +5,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for t_user
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
+
+
+
 CREATE TABLE `t_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) DEFAULT NULL,
@@ -13,4 +16,5 @@ CREATE TABLE `t_user` (
   `sex` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=armscii8;
+
 

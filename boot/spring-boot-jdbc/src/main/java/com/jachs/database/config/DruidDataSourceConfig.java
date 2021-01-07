@@ -3,20 +3,21 @@ package com.jachs.database.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.WebStatFilter;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
-
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.sql.DataSource;
-
 
 /***
  * 
@@ -76,5 +77,16 @@ public class DruidDataSourceConfig {
         bean.setInitParameters(initParams);
         bean.setUrlPatterns(Arrays.asList("/*"));
         return  bean;
+    }
+    
+    @Primary
+    @Bean(name = "druidTransactionManager")
+    public DataSourceTransactionManager oneTransactionManager(@Qualifier("druidDataSource")DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+   
+    @Bean(name = "druidJdbcTemplate")
+    public JdbcTemplate JdbcTemplate(@Qualifier("druidDataSource")DataSource dataSource){
+        return new JdbcTemplate(dataSource);
     }
 }
