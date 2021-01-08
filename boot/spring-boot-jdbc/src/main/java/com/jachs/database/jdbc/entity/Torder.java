@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Torder {
     private int o_id;
-    private String u_id;
+    private int u_id;
     private String o_name;
     
 }

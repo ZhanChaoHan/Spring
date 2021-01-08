@@ -14,7 +14,7 @@ import com.jachs.database.jdbc.entity.Tuser;
  * @author zhanchaohan
  * 
  */
-@SpringBootTest
+@SpringBootTest(classes = {SpringBootJdbcApplication.class})
 public class TestTUser {
     @Autowired
     private TuserDao tuserDao;

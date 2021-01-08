@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author zhanchaohan
  * 
  */
-@SpringBootTest
+@SpringBootTest(classes = {SpringBootJdbcApplication.class})
 public class TestDataBase {
     @Autowired
     @Qualifier("dbcpSource")
