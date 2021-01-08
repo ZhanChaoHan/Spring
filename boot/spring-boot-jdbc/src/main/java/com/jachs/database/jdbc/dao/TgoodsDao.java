@@ -12,9 +12,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class TgoodsDao {
-//    @Autowired
-//    @Qualifier("dbcpJdbcTemplate")
-//    private JdbcTemplate jdbcTemplate;
+    @Autowired
+    @Qualifier("dbcpJdbcTemplate")
+    private JdbcTemplate jdbcTemplate;
     
     
 }

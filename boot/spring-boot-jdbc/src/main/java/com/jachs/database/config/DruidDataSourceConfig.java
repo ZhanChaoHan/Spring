@@ -33,7 +33,8 @@ public class DruidDataSourceConfig {
      * @throws IOException 
      */ 
     @Primary
-    @Bean("druidDataSource")
+    @Bean()
+    @Qualifier("druidDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DataSource dataSource () {
         DruidDataSource dataSource = new DruidDataSource ();
@@ -79,14 +80,13 @@ public class DruidDataSourceConfig {
         return  bean;
     }
     
-    @Primary
     @Bean(name = "druidTransactionManager")
     public DataSourceTransactionManager oneTransactionManager(@Qualifier("druidDataSource")DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
-   
-    @Bean(name = "druidJdbcTemplate")
-    public JdbcTemplate JdbcTemplate(@Qualifier("druidDataSource")DataSource dataSource){
+    
+    @Bean("druidJdbcTemplate")
+    public JdbcTemplate DruidJdbcTemplate(@Qualifier("druidDataSource")DataSource dataSource){
         return new JdbcTemplate(dataSource);
     }
 }

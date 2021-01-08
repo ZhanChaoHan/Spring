@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class TorderDao {
-//    @Autowired
-//    @Qualifier("c3p0JdbcTemplate")
-//    private JdbcTemplate jdbcTemplate;
+    @Autowired
+    @Qualifier("c3p0JdbcTemplate")
+    private JdbcTemplate jdbcTemplate;
     
 }
