@@ -8,14 +8,14 @@
 		<artifactId>spring-boot-mybatis</artifactId>
 		<version>1.0</version>
 	</parent>
-	
+
 	<groupId>com.jachs</groupId>
 	<artifactId>spring-boot-mybatis-configure</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-mybatis-configure</name>
 	<description>Demo project for Spring Boot</description>
 	<packaging>jar</packaging>
-	
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -31,7 +31,11 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>${boot.mybatis.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.jachs</groupId>
+			<artifactId>spring-boot-mybatis-pagehelper</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
