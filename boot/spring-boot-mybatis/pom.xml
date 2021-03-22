@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<boot.mybatis.version>2.1.4</boot.mybatis.version>
+		<boot.mybatis.pagehelper.version>1.3.0</boot.mybatis.pagehelper.version>
 	</properties>
 	<dependencies>
 		<dependency>
