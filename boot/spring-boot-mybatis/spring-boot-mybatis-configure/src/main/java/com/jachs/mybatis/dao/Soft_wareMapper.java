@@ -12,4 +12,5 @@ public interface Soft_wareMapper {
     int updateByPrimaryKeySelective(Soft_ware record);
     int updateByPrimaryKey(Soft_ware record);
     List<Soft_ware> selectAll();
+	List<Soft_ware> selectByCid(String cid);
 }

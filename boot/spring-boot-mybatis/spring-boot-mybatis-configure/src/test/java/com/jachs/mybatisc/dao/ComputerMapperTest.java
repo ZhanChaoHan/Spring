@@ -22,7 +22,7 @@ public class ComputerMapperTest {
 	@Autowired
 	private Soft_wareMapper soft_wareMapper;
 	
-	private static final String cId="cid";
+	private static final String cId="pid";
 	
 	@Test
 	public void test1() {
@@ -36,7 +36,7 @@ public class ComputerMapperTest {
 	@Test
 	public void test2() {
 		RandomStringUtils rsu=new RandomStringUtils();
-		for (int kk = 0; kk < 100; kk++) {
+		for (int kk = 100; kk < 200; kk++) {
 			Soft_ware sw=new Soft_ware();
 			sw.setCid(cId);
 			
@@ -44,6 +44,20 @@ public class ComputerMapperTest {
 			sw.setSoftWareName(rsu.randomAlphanumeric(6));
 			soft_wareMapper.insert(sw);
 		}
+	}
+	//单查询
+	@Test
+	public void test5() {
+		Soft_ware soft_ware=soft_wareMapper.selectByPrimaryKey("1");
+		System.out.println(soft_ware.getCid());
+		System.out.println(soft_ware.getSoftWareId());
+		System.out.println(soft_ware.getSoftWareName());
+	}
+	//id查询
+	@Test
+	public void test6() {
+		List<Soft_ware>swList=soft_wareMapper.selectByCid(cId);
+		System.out.println(swList.size());
 	}
 	//page helper分页
 	@Test
