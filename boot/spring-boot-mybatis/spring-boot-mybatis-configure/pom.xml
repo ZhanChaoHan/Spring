@@ -10,7 +10,6 @@
 	</parent>
 
 	<artifactId>spring-boot-mybatis-configure</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-mybatis-configure</name>
 	<description>Demo project for Spring Boot</description>
 	<packaging>jar</packaging>

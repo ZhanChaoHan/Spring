@@ -9,6 +9,9 @@
   <sql id="Base_Column_List">
     computer_id, computer_name, computer_price
   </sql>
+   <select id="count"  resultType="int">
+    select count(*)   from computer
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

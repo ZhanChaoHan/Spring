@@ -1,20 +1,25 @@
 package com.jachs.mybatisc.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.jachs.mybatis.Application;
 import com.jachs.mybatis.dao.ComputerMapper;
 import com.jachs.mybatis.dao.Soft_wareMapper;
 import com.jachs.mybatis.entity.Computer;
 import com.jachs.mybatis.entity.Soft_ware;
 
+/****
+ * 简单查询，条件查询
+ * @author zhanchaohan
+ *
+ */
 @SpringBootTest(classes = Application.class)
 public class ComputerMapperTest {
 	@Autowired
@@ -47,52 +52,41 @@ public class ComputerMapperTest {
 	}
 	//单查询
 	@Test
-	public void test5() {
+	public void test3() {
 		Soft_ware soft_ware=soft_wareMapper.selectByPrimaryKey("1");
 		System.out.println(soft_ware.getCid());
 		System.out.println(soft_ware.getSoftWareId());
 		System.out.println(soft_ware.getSoftWareName());
 	}
-	//id查询
+	//指定名称传参
+	@Test
+	public void test4() {
+		Soft_ware sw=soft_wareMapper.selectByCidAndSoftWareName("cid","x1KsYN");
+		
+		System.out.println(sw.getSoftWareId());
+	}
+	//@Param注解
+	@Test
+	public void test5() {
+		Soft_ware sw=soft_wareMapper.selectByCidAndSoftWareName_1("cid","x1KsYN");
+		
+		System.out.println(sw.getSoftWareId());
+	}
+	//map传参
 	@Test
 	public void test6() {
+		Map<String, String>maps=new HashMap<String, String>();
+		maps.put("a", "cid");
+		maps.put("b", "x1KsYN");
+		Soft_ware sw=soft_wareMapper.selectByCidAndSoftWareName_2(maps);
+		
+		System.out.println(sw.getSoftWareId());
+	}
+	//id查询
+	@Test
+	public void test7() {
 		List<Soft_ware>swList=soft_wareMapper.selectByCid(cId);
 		System.out.println(swList.size());
 	}
-	//page helper分页
-	@Test
-	public void test3() {
-		System.out.println("第一页-----------------------");
-		PageHelper.startPage(1, 10);
-		List<Soft_ware>  swList=soft_wareMapper.selectAll();
-		for (Soft_ware soft_ware : swList) {
-			System.out.println(soft_ware.getSoftWareId());
-		}
-		System.out.println("第二页-----------------------");
-		PageHelper.startPage(2, 10);
-		List<Soft_ware>  swList1=soft_wareMapper.selectAll();
-		for (Soft_ware soft_ware : swList1) {
-			System.out.println(soft_ware.getSoftWareId());
-		}
-		
-	}
-	//分页排序
-	@Test
-	public void test4() {
-		String orderBy ="cid desc";////按照排序字段 倒序 排序
-		
-		System.out.println("第一页-----------------------");
-		PageHelper.startPage(1, 10,orderBy);
-		List<Soft_ware>  swList=soft_wareMapper.selectAll();
-		for (Soft_ware soft_ware : swList) {
-			System.out.println(soft_ware.getSoftWareId());
-		}
-		System.out.println("第二页-----------------------");
-		PageHelper.startPage(2, 10,orderBy);
-		List<Soft_ware>  swList1=soft_wareMapper.selectAll();
-		for (Soft_ware soft_ware : swList1) {
-			System.out.println(soft_ware.getSoftWareId());
-		}
-		
-	}
+	
 }

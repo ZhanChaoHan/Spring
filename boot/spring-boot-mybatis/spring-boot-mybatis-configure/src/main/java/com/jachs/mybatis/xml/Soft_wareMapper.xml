@@ -9,6 +9,15 @@
   <sql id="Base_Column_List">
     soft_ware_id, cid, soft_ware_name
   </sql>
+  <select id="selectByCidAndSoftWareName_2" parameterType="map" resultMap="BaseResultMap">
+  	select * from soft_ware where cid=#{a} and soft_ware_name=#{b}
+  </select>
+  <select id="selectByCidAndSoftWareName_1" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select * from soft_ware where cid=#{p1} and soft_ware_name=#{p2}
+  </select>
+  <select id="selectByCidAndSoftWareName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select * from soft_ware where cid=#{cid} and soft_ware_name=#{softname}
+  </select>
   <select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

@@ -14,4 +14,6 @@ public interface ComputerMapper {
     int updateByPrimaryKeySelective(Computer record);
 
     int updateByPrimaryKey(Computer record);
+
+	int count();
 }
