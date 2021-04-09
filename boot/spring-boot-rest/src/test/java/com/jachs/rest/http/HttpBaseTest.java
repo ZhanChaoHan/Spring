@@ -16,4 +16,6 @@ public abstract class HttpBaseTest {
 	protected static final String student=ServerPath+"student";
 	protected static final String studentcard=ServerPath+"studentcard";
 	
+	protected static final String people=ServerPath+"people";
+	
 }
