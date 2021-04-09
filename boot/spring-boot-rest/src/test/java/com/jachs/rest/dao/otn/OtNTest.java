@@ -1,7 +1,7 @@
-package com.jachs.rest.otn;
+package com.jachs.rest.dao.otn;
+
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -9,11 +9,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.jachs.rest.dao.otn.ComputerRepository;
-import com.jachs.rest.dao.otn.SoftWareRepository;
 import com.jachs.rest.entity.otn.Computer;
 import com.jachs.rest.entity.otn.SoftWare;
 
+/****
+ * 
+ * @author zhanchaohan
+ *
+ */
 @SpringBootTest
 public class OtNTest {
 	RandomStringUtils rsu=new RandomStringUtils();
