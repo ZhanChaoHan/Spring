@@ -35,4 +35,7 @@ public class PeopleTest extends HttpBaseTest {
 		String stc = httpClientUtill.sendGet(people+"/1");
 		System.out.println(stc);
 	}
+	
+	//DELETE:http://127.0.0.1:8080/api/people/49,删除ID49
+	
 }
