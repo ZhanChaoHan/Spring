@@ -1,4 +1,4 @@
-package com.jachs.aspectj.demo.part1;
+package com.jachs.aspectj.demo;
 
 
 import org.springframework.stereotype.Component;
@@ -19,8 +19,9 @@ public class HuMan {
 	public void openMouth() {
 		System.out.println("openMouth");
 	}
-	public void speak() {
+	public void speak() throws Exception {
 		System.out.println("speak");
+//		throw new Exception("异常出现");
 	}
 	public void speak(String word) {
 		System.out.println(this.name+"speak："+word);

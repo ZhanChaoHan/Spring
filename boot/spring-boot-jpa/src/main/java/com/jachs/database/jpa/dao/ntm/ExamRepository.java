@@ -3,7 +3,7 @@ package com.jachs.database.jpa.dao.ntm;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 //import com.jachs.database.config.multiple.TargetDataSource;
-import com.jachs.database.jpa.entity.ntm.Exam;
+import com.jachs.entity.ntm.Exam;
 //import com.jachs.database.config.multiple.DataSourceType;
 
 /**

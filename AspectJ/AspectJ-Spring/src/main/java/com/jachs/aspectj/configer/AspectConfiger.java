@@ -73,5 +73,4 @@ public class AspectConfiger {
     public void afterThrowing(JoinPoint point){
         log.info("@AfterThrowing-----",point.getTarget());
     }
-
 }
