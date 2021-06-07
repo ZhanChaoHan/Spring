@@ -31,7 +31,23 @@ public class HumanAspect {
     @Around("myPoint()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("环绕前");
-        Object result = pjp.proceed();
+        System.out.println("返回切入的类型:"+pjp.getKind());
+        System.out.println("-----------------开始------------------------");
+        //返回切入点参数
+        Object[] arr=pjp.getArgs();
+        
+        if(arr[0]!=null) {//先判断当前执行方法为有参方法
+        	boolean agr= (Boolean) arr[0];
+        	if(agr) {//改参数
+        		arr[0]=false;
+        	}else {
+        		arr[1]=true;
+        	}
+        	pjp.proceed(arr);
+        }
+        Object result = pjp.proceed();//执行默认的
+        
+        System.out.println("-----------------结束------------------------");
         System.out.println("环绕后");
         return result;
     }
