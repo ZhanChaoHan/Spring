@@ -20,5 +20,4 @@ public class HumanAspect {
 	public void sleep() {
 		System.out.println("开始睡觉");
 	}
-	
 }
