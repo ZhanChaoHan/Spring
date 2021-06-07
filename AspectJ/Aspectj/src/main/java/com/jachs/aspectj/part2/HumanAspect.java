@@ -35,7 +35,7 @@ public class HumanAspect {
         System.out.println("-----------------开始------------------------");
         //返回切入点参数
         Object[] arr=pjp.getArgs();
-        
+        Object result=null;
         if(arr[0]!=null) {//先判断当前执行方法为有参方法
         	boolean agr= (Boolean) arr[0];
         	if(agr) {//改参数
@@ -43,9 +43,9 @@ public class HumanAspect {
         	}else {
         		arr[1]=true;
         	}
-        	pjp.proceed(arr);
+        	result=pjp.proceed(arr);
         }
-        Object result = pjp.proceed();//执行默认的
+//      result = pjp.proceed();//执行默认的
         
         System.out.println("-----------------结束------------------------");
         System.out.println("环绕后");
