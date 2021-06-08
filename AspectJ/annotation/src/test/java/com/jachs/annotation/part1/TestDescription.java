@@ -8,9 +8,7 @@ import org.junit.Test;
  */
 public class TestDescription {
     @Description(author = "Mooc Boy", desc = "I am eyeColor",age=18)
-    public class descriptionC{
-        
-    }
+    public class descriptionC{}
     
     @Test
     public void beTest() throws NoSuchMethodException, SecurityException, NoSuchFieldException {
