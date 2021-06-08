@@ -7,7 +7,7 @@ import org.junit.Test;
  * 注解测试
  */
 public class TestDescription {
-    @Description(author = "Mooc Boy", desc = "I am eyeColor",age=18)   //我的成员多，需要在注解后自定义
+    @Description(author = "Mooc Boy", desc = "I am eyeColor",age=18)
     public class descriptionC{
         
     }
