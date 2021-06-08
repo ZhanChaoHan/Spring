@@ -1,6 +1,11 @@
 package com.jachs.annotation.part2;
 
 import java.lang.annotation.Annotation;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+import com.jachs.annotation.part1.Description;
 
 
 /***
@@ -10,25 +15,62 @@ import java.lang.annotation.Annotation;
  */
 public class TestExcute {
 	@ExcuteSQL(connectURL = "jdbc:mysql://127.0.0.1:3306/jpatest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
-			driverClass = "com.mysql.cj.jdbc.Driver", passWorld = "", userName = "root",
-			excuteSQLText = "")
+			driverClass = "com.mysql.cj.jdbc.Driver", passWorld = "123456", userName = "root",
+			excuteSQLText = "insert into computer value(66,'神州',7500)")
 	public class excuteO {};
 	
 	
 	@ExcuteSQL(connectURL = "jdbc:mysql://127.0.0.1:3306/jpatest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
-			driverClass = "com.mysql.cj.jdbc.Driver", passWorld = "", userName = "root",
-			excuteSQLText = "")
+			driverClass = "com.mysql.cj.jdbc.Driver", passWorld = "123456", userName = "root",
+			excuteSQLText = "insert into computer value(99,'apa',9500)")
 	public class excuteN {};
+	
+	@ExcuteSQL(connectURL = "jdbc:mysql://127.0.0.1:3306/jpatest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
+			driverClass = "com.mysql.cj.jdbc.Driver", passWorld = "123456", userName = "root",
+			excuteSQLText = "insert into computer value(789,'okay',2658)")
+	public interface excuteQ {};
+	
+	@Description(author = "Jame", desc = "buleHair",age=18)
+    public class descriptionC{}
+	
 	
 	public static void main(String[] args) {
 		Class myTest=TestExcute.class;
 		
-		Annotation[] arrList=myTest.getAnnotations();
+		Class[]  clList=myTest.getClasses();
 		
-		for (Annotation annotation : arrList) {
-			System.out.println(annotation.toString());
+		for (Class cls : clList) {
+			for (Annotation class1 : cls.getAnnotations()) {
+				if(cls.isAnnotationPresent(ExcuteSQL.class)) {//判断注解类型是否是ExcuteSQL
+					ExcuteSQL eSQL=(ExcuteSQL) cls.getAnnotation(ExcuteSQL.class);
+					
+					excuteMethod(eSQL.driverClass(), eSQL.userName(), eSQL.passWorld(), eSQL.connectURL(), eSQL.excuteSQLText());
+				}
+			}
 		}
-//		ExcuteSQL e1=excuteO.class.getAnnotation(ExcuteSQL.class);
+	}
+	private static  void excuteMethod(String driverClass,String userName,String passWorld,String connectURL,String excuteSQLText) {
+		Connection connect=null;
+		Statement statement=null;
 		
+		try {
+			Class.forName(driverClass);
+			connect=DriverManager.getConnection(connectURL, userName, passWorld);
+			statement=connect.createStatement();
+			
+			statement.execute(excuteSQLText);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(connect!=null) {
+					connect.close();
+				}
+				if(statement!=null) {
+					statement.close();
+				}
+			}catch (Exception e) {
+			}
+		}
 	}
 }
