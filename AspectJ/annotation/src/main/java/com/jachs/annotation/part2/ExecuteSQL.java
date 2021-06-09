@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
-public @interface ExcuteSQL {
+public @interface ExecuteSQL {
 	String driverClass();
 	String userName();
 	String passWorld();
