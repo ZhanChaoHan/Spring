@@ -11,6 +11,7 @@ import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
 
 import com.google.auto.service.AutoService;
+import com.jachs.annotation_processor.annotation.GuGuBird;
 
 
 
@@ -25,18 +26,21 @@ public class MyProcessor extends AbstractProcessor{
 	}
 	@Override
     public Set<String> getSupportedAnnotationTypes() {
+		System.out.println("getSupportedAnnotationTypes");
         Set<String> annotataions = new LinkedHashSet<String>();
-        annotataions.add("com.jachs.annotation_processor.annotation");
+        annotataions.add(GuGuBird.class.getCanonicalName());
         return annotataions;
     }
 
     @Override
     public SourceVersion getSupportedSourceVersion() {
+    	System.out.println("getSupportedSourceVersion");
         return SourceVersion.latestSupported();
     }
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
+    	System.out.println("init");
         super.init(processingEnv);
     }
 }

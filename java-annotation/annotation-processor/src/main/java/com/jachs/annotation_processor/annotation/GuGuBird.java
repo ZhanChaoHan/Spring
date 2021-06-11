@@ -7,12 +7,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ ElementType.METHOD, ElementType.TYPE })
+@Target({ ElementType.METHOD, ElementType.TYPE,ElementType.PACKAGE })
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
 public @interface GuGuBird {
 	String song();
 	long spendTime();
-	
 }
