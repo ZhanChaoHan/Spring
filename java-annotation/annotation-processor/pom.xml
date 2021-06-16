@@ -22,13 +22,13 @@
 			<artifactId>auto-service</artifactId>
 			<version>1.0</version>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache.maven.plugin-tools</groupId>
-			<artifactId>maven-plugin-annotations</artifactId>
-			<version>3.6.1</version>
+			<groupId>com.jachs</groupId>
+			<artifactId>annotation</artifactId>
+			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
 	</dependencies>
 
 
@@ -45,18 +45,15 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-				<groupId>org.bsc.maven</groupId>
-				<artifactId>maven-processor-plugin</artifactId>
-				 <version>4.5-jdk8</version>
-				<configuration>
-					<source>8</source>
-					<target>8</target>
-					<annotationProcessors>
-						<annotationProcessor>com.jachs.annotation_processor.MyProcessor</annotationProcessor>
-					</annotationProcessors>
-				</configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

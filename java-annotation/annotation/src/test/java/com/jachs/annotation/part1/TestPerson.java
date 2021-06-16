@@ -9,8 +9,7 @@ import java.lang.reflect.Method;
  */
 public class TestPerson {
 	@Person(name = "knjs",age = 15)
-	public void testMethon() {
-	}
+	public void testMethon() {}
 
 	public static void main(String[] args) {
 		Class thisClass = TestPerson.class;

@@ -1,4 +1,4 @@
-package com.jachs.annotation_processor.annotation;
+package com.jachs.annotation.part3;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -7,11 +7,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ ElementType.METHOD, ElementType.TYPE,ElementType.PACKAGE })
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
-public @interface GuGuBird {
-	String song();
-	long spendTime();
+public @interface CreateFile {
+	String fileName();
+	String filePath();
+	
+	String message() default "this message for test";
 }
