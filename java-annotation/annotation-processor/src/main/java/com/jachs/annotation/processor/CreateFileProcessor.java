@@ -36,6 +36,7 @@ public class CreateFileProcessor extends AbstractProcessor{
 				Writer wr= new FileWriter(cf.filePath()+cf.fileName());
 				wr.write(cf.message());
 				wr.close();
+				return true;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
