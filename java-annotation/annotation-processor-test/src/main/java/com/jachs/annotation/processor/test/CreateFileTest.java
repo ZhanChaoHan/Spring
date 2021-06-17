@@ -1,6 +1,7 @@
 package com.jachs.annotation.processor.test;
 
 import com.jachs.annotation.part1.Person;
+import com.jachs.annotation.part3.CreateClass;
 import com.jachs.annotation.part3.CreateFile;
 
 public class CreateFileTest {
@@ -13,6 +14,11 @@ public class CreateFileTest {
 	
 	@Person(age = 15,name = "jacks")
 	public void pcl(){};
+	
+	@CreateClass(className = "GuguBird")
+	public class d{};
+	@CreateClass(className = "OnlyForTest",message = "hello java")
+	public class e{};
 	
 	public static void main(String[] args) {
 		

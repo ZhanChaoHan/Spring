@@ -30,7 +30,6 @@ public class CreateExcelProcessorTest {
 		map.put("性别", listB);
 		return map;
 	}
-	
 	public static void main(String[] args) {
 		
 	}
