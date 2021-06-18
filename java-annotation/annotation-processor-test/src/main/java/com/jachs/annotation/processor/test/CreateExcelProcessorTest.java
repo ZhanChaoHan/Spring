@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.jachs.annotation.part3.CreateClass;
 import com.jachs.annotation.part4.ExportExcel;
 
 /***
@@ -30,6 +31,10 @@ public class CreateExcelProcessorTest {
 		map.put("性别", listB);
 		return map;
 	}
+	public void cje() {}
+	@CreateClass(className = "GuguBird")
+	public class d{};
+	
 	public static void main(String[] args) {
 		
 	}

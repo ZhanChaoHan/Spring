@@ -1,5 +1,7 @@
 package com.jachs.annotation.processor;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -26,21 +28,23 @@ public class CreateExcelProcessor extends AbstractProcessor{
 	public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
 		System.out.println("ok im in CreateExcelProcessor");
 
-		for (TypeElement typeElement : annotations) {
+		for (Element annotatedElement : roundEnv.getElementsAnnotatedWith(ExportExcel.class)) {
+			Class cla=annotatedElement.getClass();
 			
+			for (Annotation annotation : cla.getAnnotations()) {
+//				annotation.annotationType().
+				Method me= annotation.annotationType().getEnclosingMethod();
+				
+				System.out.println(me.getParameterCount());
+			}
+			System.out.println(annotatedElement.getSimpleName());
 		}
+		
 		//如果在以前的处理 round 中发生错误，则返回 true；否则返回 false。
 		boolean errorRaised=roundEnv.errorRaised();
 		// 如果此 round 生成的类型不是以注释处理的后续 round 为准，则返回 true；否则返回 false。
 		boolean processingOver=roundEnv.processingOver();
 		
-		System.out.println(errorRaised);
-		System.out.println(processingOver);
-		
-		Set<? extends Element>elRoot=roundEnv.getRootElements();
-		for (Element element : elRoot) {
-			System.out.println(element.toString());
-		}
 		return true;
 	}
 	@Override

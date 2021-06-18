@@ -24,7 +24,7 @@ import com.jachs.annotation.part3.CreateFile;
  * @author zhanchaohan
  *
  */
-@AutoService(Processor.class)
+//@AutoService(Processor.class)
 public class CreateFileProcessor extends AbstractProcessor {
 
 	@Override
