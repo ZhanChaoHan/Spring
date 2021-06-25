@@ -20,6 +20,12 @@ import com.jachs.annotation.part3.CreateClass;
 import com.jachs.annotation.part3.CreateFile;
 
 /***
+ * ProcessingEnvironment:是一个注解处理工具的集合</br>
+ * Element,是一个接口，表示一个程序元素，它可以是包、类、方法或者一个变量。Element已知的子接口有：</br>
+ * PackageElement:表示一个包程序元素。提供对有关包及其成员的信息的访问。 </br>
+ * ExecutableElement:表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注释类型元素。 </br>
+ * TypeElement:表示一个类或接口程序元素。提供对有关类型及其成员的信息的访问。注意，枚举类型是一种类，而注解类型是一种接口。</br>
+ * VariableElement:表示一个字段、enum 常量、方法或构造方法参数、局部变量或异常参数。</br>
  * 
  * @author zhanchaohan
  *
@@ -43,18 +49,19 @@ public class CreateFileProcessor extends AbstractProcessor {
 				e.printStackTrace();
 			}
 		}
-		//生成个java文件，并编译
+		// 生成个java文件，并编译
 		for (Element annotatedElement : roundEnv.getElementsAnnotatedWith(CreateClass.class)) {
 			CreateClass cc = annotatedElement.getAnnotation(CreateClass.class);
 			try {
-				StringBuffer sb=new StringBuffer();
+				StringBuffer sb = new StringBuffer();
 				sb.append("package com.jachs.annotation.processor;").append("\n");
 				sb.append("public class ").append(cc.className()).append("{").append("\n");
 				sb.append("public static void main(String[] args) {").append("\n");
 				sb.append("System.out.println(\"").append(cc.message()).append("\");").append("\n");
 				sb.append("}  ").append("\n");
 				sb.append("}  ");
-				JavaFileObject source = processingEnv.getFiler().createSourceFile("com.jachs.annotation."+cc.className());
+				JavaFileObject source = processingEnv.getFiler()
+						.createSourceFile("com.jachs.annotation." + cc.className());
 				Writer writer = source.openWriter();
 				writer.write(sb.toString());
 				writer.flush();
@@ -67,6 +74,7 @@ public class CreateFileProcessor extends AbstractProcessor {
 		return true;
 	}
 
+	// 集合中指定支持的注解类型的名称（这里必须时完整的包名+类名)
 	@Override
 	public Set<String> getSupportedAnnotationTypes() {
 		Set<String> annotataions = new LinkedHashSet<String>();
@@ -75,11 +83,13 @@ public class CreateFileProcessor extends AbstractProcessor {
 		return annotataions;
 	}
 
+	// 指定当前正在使用的Java版本
 	@Override
 	public SourceVersion getSupportedSourceVersion() {
 		return SourceVersion.latestSupported();
 	}
 
+	// 初始化处理器
 	@Override
 	public synchronized void init(ProcessingEnvironment processingEnv) {
 		super.init(processingEnv);

@@ -4,6 +4,11 @@ import com.jachs.annotation.part1.Person;
 import com.jachs.annotation.part3.CreateClass;
 import com.jachs.annotation.part3.CreateFile;
 
+/***
+ * 
+ * @author zhanchaohan
+ *
+ */
 public class CreateFileTest {
 	@CreateFile(fileName = "a.txt", filePath = "e:\\")
 	public class a{};
@@ -21,6 +26,6 @@ public class CreateFileTest {
 	public class e{};
 	
 	public static void main(String[] args) {
-		
+		 
 	}
 }
