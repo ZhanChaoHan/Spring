@@ -1,5 +1,7 @@
 package com.jachs.annotation.processor.test;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import com.jachs.annotation.part2.ExecuteSQL;
 import com.jachs.annotation.part3.CreateClass;
 
@@ -10,7 +12,7 @@ import com.jachs.annotation.part3.CreateClass;
  */
 public class ExecuteSqlProcessorTest {
 	@ExecuteSQL(connectURL = "",driverClass = "",excuteSQLText = "",passWorld = "",userName = "")
-	public void a(){}
+	public BasicDataSource a(){return null;}
 	
 	@ExecuteSQL(connectURL = "",driverClass = "",excuteSQLText = "",passWorld = "",userName = "")
 	public void b(){}
