@@ -1,20 +1,13 @@
 package com.jachs.springel;
 
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import org.junit.Test;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
-import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import com.jachs.springel.bean.ElBean;
 import com.jachs.springel.entity.Inventor;
-import com.jachs.springel.entity.Role2;
 
 /**
  * @author zhanchaohan
