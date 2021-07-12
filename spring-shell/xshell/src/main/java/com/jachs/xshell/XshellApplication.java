@@ -3,6 +3,11 @@ package com.jachs.xshell;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/***
+ * 
+ * @author zhanchaohan
+ *
+ */
 @SpringBootApplication
 public class XshellApplication {
 
