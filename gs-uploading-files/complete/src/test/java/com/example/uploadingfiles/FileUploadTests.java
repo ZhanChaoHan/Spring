@@ -22,8 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.uploadingfiles.storage.StorageFileNotFoundException;
-import com.example.uploadingfiles.storage.StorageService;
+import com.example.uploadingfiles.storage.exception.StorageFileNotFoundException;
+import com.example.uploadingfiles.storage.server.StorageService;
 
 @AutoConfigureMockMvc
 @SpringBootTest

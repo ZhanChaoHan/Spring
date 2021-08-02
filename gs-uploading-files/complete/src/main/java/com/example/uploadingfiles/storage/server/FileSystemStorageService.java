@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.storage;
+package com.example.uploadingfiles.storage.server;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +14,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.example.uploadingfiles.storage.StorageProperties;
+import com.example.uploadingfiles.storage.exception.StorageException;
+import com.example.uploadingfiles.storage.exception.StorageFileNotFoundException;
 
 @Service
 public class FileSystemStorageService implements StorageService {

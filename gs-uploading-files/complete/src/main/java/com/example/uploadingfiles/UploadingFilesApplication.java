@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 
 import com.example.uploadingfiles.storage.StorageProperties;
-import com.example.uploadingfiles.storage.StorageService;
+import com.example.uploadingfiles.storage.server.StorageService;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
