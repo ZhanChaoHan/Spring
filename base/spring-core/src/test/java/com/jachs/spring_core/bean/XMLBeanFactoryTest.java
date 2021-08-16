@@ -1,15 +1,11 @@
 package com.jachs.spring_core.bean;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 import org.junit.Test;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.InputStreamResource;
 
 /***
  * 
@@ -18,6 +14,9 @@ import org.springframework.core.io.InputStreamResource;
  */
 public class XMLBeanFactoryTest {
 
+	/***
+	 * 三种注入方式
+	 */
 	@Test
 	public void test1() {
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
@@ -29,17 +28,22 @@ public class XMLBeanFactoryTest {
 		System.out.println(people.getName());
 		System.out.println(people.getAge());
 		System.out.println(people.getPhoneNum());
-	}
-
-	@Test
-	public void test2() throws FileNotFoundException {
-		InputStream is = new FileInputStream("E:\\EclipseWorkSpace\\spring-core\\src\\main\\resources\\XMLBeanFactory.xml");
-		XmlBeanFactory factory = new XmlBeanFactory(new InputStreamResource(is));
 		
-		People people = (People) factory.getBean("jack");
-
-		System.out.println(people.getName());
-		System.out.println(people.getAge());
-		System.out.println(people.getPhoneNum());
+		System.out.println("-----------------------------------");
+		Person person=(Person) beanFactory.getBean("jason");
+		
+		System.out.println(person.getName());
+		System.out.println(person.getAge());
+		System.out.println(person.getPhoneNum());
+		
+		System.out.println("-----------------------------------");
+		
+		People personCk=(People) beanFactory.getBean("jessica");
+		
+		System.out.println(personCk.getName());
+		System.out.println(personCk.getAge());
+		System.out.println(personCk.getPhoneNum());
 	}
+
+	
 }
