@@ -18,4 +18,9 @@
 	</bean>
 	<!-- p空间名称注入 -->
 	<bean id="jessica" class="com.jachs.spring_core.bean.People" p:name="jessKa" p:age="12" p:phoneNum="123456"></bean>
+	
+	<!--  -->
+	<bean id="mockConn" class="com.jachs.spring_core.bean.MockConnection" init-method="initConnection" destroy-method="destoryConnection">
+		<property name="people" ref="jack"></property>
+	</bean>
 </beans>

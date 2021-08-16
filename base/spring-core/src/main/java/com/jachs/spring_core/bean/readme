@@ -7,7 +7,10 @@ bean标签属性
         prototype：多例的
         request：将Spring 创建的 Bean 对象存入到 request 域中.
         session：将Spring 创建的 Bean 对象存入到 session 域中.
+        application：将 Spring Bean 存储在 ServletContext 中.
         global session：WEB 项目中,应用在 Portlet 环境.如果没有 Portlet 环境那么globalSession 相当于 session。
     init-method：指定类中的初始化方法名称。
     destroy-method：指定类中销毁方法名称。比如DataSource的配置中一般需要指定destroy-method=“close”。
     lazy-init：ApplicationContext实现的默认行为就是在启动时将所有 singleton bean进行实例化。lazy-init可以延迟初始化，设置lazy-init="true"使得Ioc容器在第一次需要bean的时候进行实例化。
+
+    https://www.cnblogs.com/lifullmoon/p/14422101.html
