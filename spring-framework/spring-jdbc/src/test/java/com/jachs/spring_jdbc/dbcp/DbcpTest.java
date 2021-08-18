@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.junit.Test;
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
@@ -25,7 +24,7 @@ public class DbcpTest {
 	public void test1() {
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
-		reader.loadBeanDefinitions(new ClassPathResource("/database/dbcp/dbcp.xml"));
+		reader.loadBeanDefinitions(new ClassPathResource("dbcp.xml"));
 		
 		JdbcTemplate jdbcTemplate=beanFactory.getBean("jdbcTemplate",JdbcTemplate.class);
 		
