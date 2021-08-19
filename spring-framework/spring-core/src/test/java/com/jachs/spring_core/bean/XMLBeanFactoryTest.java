@@ -49,8 +49,5 @@ public class XMLBeanFactoryTest {
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
 		reader.loadBeanDefinitions(new ClassPathResource("XMLBeanFactory.xml"));
-		
-		MockConnection mc=(MockConnection) beanFactory.getBean("mockConn");
-		
 	}
 }
