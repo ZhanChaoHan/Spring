@@ -24,7 +24,7 @@ public class DbcpTest {
 	public void test1() {
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
-		reader.loadBeanDefinitions(new ClassPathResource("dbcp.xml"));
+		reader.loadBeanDefinitions(new ClassPathResource("datasource/dbcp.xml"));
 		
 		JdbcTemplate jdbcTemplate=beanFactory.getBean("jdbcTemplate",JdbcTemplate.class);
 		
