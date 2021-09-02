@@ -14,9 +14,10 @@ import com.jachs.j_spring_aop.controller.UserController;
 public class UserTest {
 	@Test
 	public void test1() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("my/User.xml","my/UserAdvice.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("my/user/User.xml","my/user/UserAdvice.xml");
 	
 		UserController uc=ctx.getBean("uController",UserController.class);
 		uc.save();
+		uc.query();
 	}
 }
