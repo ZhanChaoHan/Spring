@@ -16,6 +16,8 @@
 		<dbcp2.version>2.9.0</dbcp2.version>
 		<mysql.version>8.0.26</mysql.version>
 		<hsql.version>0.9.5</hsql.version>
+		<h2.version>1.4.200</h2.version>
+		<derby.version>10.15.2.0</derby.version>
 		<aspectj.version>1.9.7</aspectj.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
